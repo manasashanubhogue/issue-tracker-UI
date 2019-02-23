@@ -43,7 +43,7 @@ class App extends Component {
     event.preventDefault();
     this.setState({showLoader:true})
     this.setState({resultData:null})
-    fetch(`https://github-issue-track.herokuapp.com/api/get-open-issue/?url=${this.input.value}`, {
+    fetch(`https://demo-issue-tracker.herokuapp.com/api/get-open-issue/?url=${this.input.value}`, {
       method: "GET",
       headers: {
         "Access-Control-Allow-Origin": "*",
