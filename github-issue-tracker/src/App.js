@@ -43,7 +43,7 @@ class App extends Component {
     event.preventDefault();
     this.setState({showLoader:true})
     this.setState({resultData:null})
-    fetch(`https://demo-issue-tracker.herokuapp.com/api/get-open-issue/?url=${this.input.value}`, {
+    fetch(`https://github-issue-track.herokuapp.com/api/get-open-issue/?url=${this.input.value}`, {
       method: "GET",
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -102,6 +102,7 @@ class App extends Component {
                         <th>Number of open issues that were opened in the last 24 hours</th>
                         <th>Number of open issues that were opened more than 24 hours ago but less than 7 days ago</th>
                         <th>Number of open issues that were opened more than 7 days ago </th>
+                        <th>Total issues</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -109,6 +110,7 @@ class App extends Component {
                         <td>{this.state.resultData['issues_in_last_24_hrs']}</td>
                         <td>{this.state.resultData['issues_between_1dayto_7day']}</td>
                         <td>{this.state.resultData['issues_more_than_7days']}</td>
+                        <td>{this.state.resultData['open_issues']}</td>
                       </tr>
                     </tbody> 
                 </Table>)
