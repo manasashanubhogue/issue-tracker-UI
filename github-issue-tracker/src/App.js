@@ -47,6 +47,10 @@ class App extends Component {
       method: "GET",
       headers: {
         "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+        
       }
     }).then(res => res.json())
     .then(resultData => this.setState({ resultData, showLoader:false })).catch(rejected => {
@@ -62,14 +66,14 @@ class App extends Component {
               rel="stylesheet"
               href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
               integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-              crossorigin="anonymous"
+              crossOrigin="anonymous"
             />
           </header>
           
           <div className="App-header">
             <Form className="form" onSubmit={this.handleSubmit}>
             <Form.Group as={Row} controlId="formPlaintextPassword">
-              <Form.Label row sm="2">
+              <Form.Label  sm="2">
                 Enter Github Public Repo URL: 
               </Form.Label>
               <Col sm="10">
